@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { useInView } from 'react-intersection-observer';
 import './App.css';
-import profileImage from './logo.svg'; // Adjust the path as needed
-import certImage from './images/cert.png'; // Adjust the path as needed
+import profileImage from '/Users/codycogbill/Desktop/portfolio/ccportfolio/src/images/me.png'; // Adjust the path as needed
+import certImage from '/Users/codycogbill/Desktop/portfolio/ccportfolio/src/images/cert.png'; // Adjust the path as needed
 import { IconButton } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -10,6 +11,18 @@ Modal.setAppElement('#root'); // Set the root element for accessibility
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { ref: aboutMeRef, inView: aboutMeInView } = useInView({ triggerOnce: true });
+  const { ref: flatironRef, inView: flatironInView } = useInView({ triggerOnce: true });
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
+
+  const skills = [
+    'JavaScript', 'React', 'Python', 'SQL', 'PostgreSQL', 'MongoDB',
+    'Bootstrap', 'Next.js', 'Redux', 'Node.js', 'Express', 'gRPC',
+    'OAuth2', 'HTML', 'CSS', 'Git', 'REST APIs', 'WebSockets',
+    'Microsoft Graph API', 'Docker', 'Kubernetes', 'Agile Methodologies',
+    'TDD', 'CI/CD', 'JIRA', 'Confluence', 'VS Code', 'Linux',
+    'MacOS', 'RESTful APIs', 'Flask', 'GitHub', 'GitLab'
+  ];
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -23,13 +36,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="header-content">
-          <h1 className="header-name">Cody Cogbill</h1>
           <div className="profile-container">
             <div className="profile-background">
               <img src={profileImage} className="App-profile" alt="profile" />
             </div>
           </div>
-          <p className="header-title">Full Stack Developer</p>
+          <h1 className="header-name">Cody Cogbill</h1>
         </div>
         <div className="email-button-container">
           <IconButton
@@ -43,58 +55,26 @@ function App() {
         </div>
       </header>
       <section className="App-section">
-        <div className="panel white-panel">
+        <div ref={aboutMeRef} className={`panel white-panel ${aboutMeInView ? 'fade-in' : ''}`}>
           <h2>About Me</h2>
-          <p>I am a junior full-stack developer with a broad range of experience in various technologies. My passion for continuous learning and dedication to delivering results enable me to approach problems creatively and from diverse perspectives. I embrace challenges with humility and integrity, always striving to find innovative solutions. I am a proud <a href="#" onClick={openModal}>graduate of the Flatiron School</a>, where I specialized in full-stack engineering.</p>
+          <p>I am a dedicated and passionate full-stack developer with a broad range of experience in various technologies. My journey in software development is driven by my enthusiasm for continuous learning and my commitment to delivering innovative solutions. I approach challenges with creativity and a problem-solving mindset, always striving to exceed expectations and provide value through my work. I am a proud <a href="#" onClick={openModal}>graduate of the Flatiron School</a>, where I specialized in full-stack engineering.</p>
         </div>
-        <div className="panel black-panel">
-          <h2>Skills</h2>
-          <p>Below you can peek at my skills and technologies I've used in my engineering journey:</p>
+        <div ref={flatironRef} className={`panel black-panel ${flatironInView ? 'fade-in' : ''}`}>
+          <h2>Flatiron School Experience</h2>
+          <p>Graduating from the Flatiron School was a pivotal moment in my career. Although it was rigorous, it honed my skills in both front-end and back-end development, providing me with a solid foundation in technologies that you'll find below. I completed several comprehensive projects that not only showcased my technical abilities but also my capacity to work effectively in collaborative environments and manage complex development tasks from conception to deployment.</p>
         </div>
-        <div className="panel white-panel">
+        <div ref={contactRef} className={`panel white-panel ${contactInView ? 'fade-in' : ''}`}>
           <h2>Contact</h2>
-          <p>If you are interested in starting a conversation about anything from video games, movies, to software engineering, you can email me at <a href="mailto:cody@happyinteractive.co">cody@happyinteractive.co</a></p>
-        </div>
-        <div className="panel black-panel">
-          <h2>Articles</h2>
-          <p>Or if you're in a reading mood, browse through my articles written about technologies that interested me during my time at Flatiron School <a href="https://medium.com/@codeman24">here</a>.</p>
+          <p>I am always eager to connect with fellow developers, potential collaborators, or anyone interested in discussing technology and innovation. Feel free to reach out to me at <a href="mailto:cody@happyinteractive.co">cody@happyinteractive.co</a> for any inquiries or opportunities.</p>
         </div>
       </section>
       <div className="ticker-wrapper">
         <div className="ticker">
-          <div className="ticker-item">JavaScript</div>
-          <div className="ticker-item">React</div>
-          <div className="ticker-item">Python</div>
-          <div className="ticker-item">SQL</div>
-          <div className="ticker-item">PostgreSQL</div>
-          <div className="ticker-item">MongoDB</div>
-          <div className="ticker-item">Bootstrap</div>
-          <div className="ticker-item">Next.js</div>
-          <div className="ticker-item">Redux</div>
-          <div className="ticker-item">Node.js</div>
-          <div className="ticker-item">Express</div>
-          <div className="ticker-item">gRPC</div>
-          <div className="ticker-item">OAuth2</div>
-          <div className="ticker-item">HTML</div>
-          <div className="ticker-item">CSS</div>
-          <div className="ticker-item">Git</div>
-          <div className="ticker-item">REST APIs</div>
-          <div className="ticker-item">WebSockets</div>
-          <div className="ticker-item">Microsoft Graph API</div>
-          <div className="ticker-item">Docker</div>
-          <div className="ticker-item">Kubernetes</div>
-          <div className="ticker-item">Agile Methodologies</div>
-          <div className="ticker-item">TDD</div>
-          <div className="ticker-item">CI/CD</div>
-          <div className="ticker-item">JIRA</div>
-          <div className="ticker-item">Confluence</div>
-          <div className="ticker-item">VS Code</div>
-          <div className="ticker-item">Linux</div>
-          <div className="ticker-item">MacOS</div>
-          <div className="ticker-item">RESTful APIs</div>
-          <div className="ticker-item">Flask</div>
-          <div className="ticker-item">GitHub</div>
-          <div className="ticker-item">GitLab</div>
+          {skills.map((skill, index) => (
+            <div className="ticker-item" key={index} style={{ '--i': index }}>
+              {skill}
+            </div>
+          ))}
         </div>
       </div>
       <Modal
