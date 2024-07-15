@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useInView } from 'react-intersection-observer';
 import './App.css';
-import profileImage from '/Users/codycogbill/Desktop/portfolio/ccportfolio/src/images/me.png'; // Adjust the path as needed
-import certImage from '/Users/codycogbill/Desktop/portfolio/ccportfolio/src/images/cert.png'; // Adjust the path as needed
+import profileImage from './images/me.png'; // Adjust the path as needed
+import certImage from './images/cert.png'; // Adjust the path as needed
 import { IconButton } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -25,10 +25,12 @@ function App() {
   ];
 
   const openModal = () => {
+    console.log("Opening modal"); // Debugging log
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
+    console.log("Closing modal"); // Debugging log
     setModalIsOpen(false);
   };
 
@@ -61,7 +63,7 @@ function App() {
         </div>
         <div ref={flatironRef} className={`panel black-panel ${flatironInView ? 'fade-in' : ''}`}>
           <h2>Flatiron School Experience</h2>
-          <p>Graduating from the Flatiron School was a pivotal moment in my career. Although it was rigorous, it honed my skills in both front-end and back-end development, providing me with a solid foundation in technologies that you'll find below. I completed several comprehensive projects that not only showcased my technical abilities but also my capacity to work effectively in collaborative environments and manage complex development tasks from conception to deployment.</p>
+          <p>Graduating from the Flatiron School was a pivotal moment in my career. The rigorous program honed my skills in both front-end and back-end development, providing me with a solid foundation in technologies such as JavaScript, React, Ruby on Rails, and SQL. I completed several comprehensive projects that not only showcased my technical abilities but also my capacity to work effectively in collaborative environments and manage complex development tasks from conception to deployment.</p>
         </div>
         <div ref={contactRef} className={`panel white-panel ${contactInView ? 'fade-in' : ''}`}>
           <h2>Contact</h2>
@@ -83,6 +85,7 @@ function App() {
         contentLabel="Certificate Modal"
         className="Modal"
         overlayClassName="Overlay"
+        closeTimeoutMS={300} // This is to sync with the CSS animation duration
       >
         <button onClick={closeModal} className="close-button">Close</button>
         <img src={certImage} alt="Certificate" className="Modal-cert" />
