@@ -19,7 +19,7 @@ function App() {
     'JavaScript', 'React', 'Python', 'SQL', 'PostgreSQL', 'MongoDB',
     'Bootstrap', 'Next.js', 'Redux', 'Node.js', 'Express', 'gRPC',
     'OAuth2', 'HTML', 'CSS', 'Git', 'REST APIs', 'WebSockets',
-    'Microsoft Graph API', 'Docker', 'Kubernetes', 'Agile Methodologies',
+    'Microsoft Graph API', 'Docker', 'Agile Methodologies',
     'TDD', 'CI/CD', 'JIRA', 'Confluence', 'VS Code', 'Linux',
     'MacOS', 'RESTful APIs', 'Flask', 'GitHub', 'GitLab'
   ];
@@ -59,11 +59,11 @@ function App() {
       <section className="App-section">
         <div ref={aboutMeRef} className={`panel white-panel ${aboutMeInView ? 'fade-in' : ''}`}>
           <h2>About Me</h2>
-          <p>I am a dedicated and passionate full-stack developer with a broad range of experience in various technologies. My journey in software development is driven by my enthusiasm for continuous learning and my commitment to delivering innovative solutions. I approach challenges with creativity and a problem-solving mindset, always striving to exceed expectations and provide value through my work. I am a proud <a href="#" onClick={openModal}>graduate of the Flatiron School</a>, where I specialized in full-stack engineering.</p>
+          <p>I am a dedicated and passionate full-stack developer with a broad range of experience in various technologies. My journey in software development is driven by my enthusiasm for continuous learning and my commitment to delivering innovative solutions. I approach challenges with creativity and a problem-solving mindset, always striving to exceed expectations and provide value through my work. I am a proud <a href="javascript:void(0)" onClick={openModal}>graduate of the Flatiron School</a>, where I specialized in full-stack engineering.</p>
         </div>
         <div ref={flatironRef} className={`panel black-panel ${flatironInView ? 'fade-in' : ''}`}>
           <h2>Flatiron School Experience</h2>
-          <p>Graduating from the Flatiron School was a pivotal moment in my career. The rigorous program honed my skills in both front-end and back-end development, providing me with a solid foundation in technologies such as JavaScript, React, Ruby on Rails, and SQL. I completed several comprehensive projects that not only showcased my technical abilities but also my capacity to work effectively in collaborative environments and manage complex development tasks from conception to deployment.</p>
+          <p>Graduating from the Flatiron School was a pivotal moment in my career. The rigorous program honed my skills in both front-end and back-end development, providing me with a solid foundation in technologies that you can peak at below. I completed several comprehensive projects that not only showcased my technical abilities but also my capacity to work effectively in collaborative environments and manage complex development tasks from conception to deployment.</p>
         </div>
         <div ref={contactRef} className={`panel white-panel ${contactInView ? 'fade-in' : ''}`}>
           <h2>Contact</h2>
